@@ -19,7 +19,8 @@ let getComputerChoice = () =>{
 
 */ 
 let playRound = (computerSelection) =>{
-    let playerSelection = prompt('Choose rock, paper, or scissors');
+    let playerSelection = prompt('Choose rock, paper, or scissors').toLowerCase();
+
     
     if (playerSelection == 'rock' && computerSelection == 'scissors'){
         playerScore++;
@@ -81,23 +82,25 @@ const computerSelection = getComputerChoice();
 */
 
 let game = () =>{
-    for (i = 0; i <= 10; i++){
+    while (playerScore < 5 && computerScore < 5){
         playRound(computerSelection);
         
-        if (playerScore < 5 || computerScore < 5){
-            alert('Keep playing!!');
-        }
         if (playerScore == 5){
             alert("player wins!!");
         }
-        if(computerScore == 5){
+        else if(computerScore == 5){
             alert('computer wins!!');
         }
-        if(playerScore == 5 && computerScore == 5){
-            alert('This game is a draw!!');
+        else{
+            alert('Keep playing!!');
         }
+
         
     
+    }
+
+    if(playerScore == computerScore){
+        alert('This game is a draw!!');
     }
 
     
